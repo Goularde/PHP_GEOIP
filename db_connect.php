@@ -4,7 +4,7 @@
 	private $db_host = 'localhost';
 	private $db_name = 'geoip';
 	private $db_username = 'root';
-	private $pass_word = '';
+	private $password = '';
 	private $charset = 'utf8mb4';
 	
 	public $conn;
@@ -22,7 +22,6 @@
 							    PDO::ATTR_EMULATE_PREPARES   => false,
 							];
 					$this->conn = new PDO($server_path,$this->getUserName(),$this->getPassword());
-          echo("connecté à la base");
 				    return $this->conn;
 				} 
 				catch (PDOException $e) {
@@ -46,7 +45,7 @@
 		return $this->db_username;
 	}
 	private function getPassword(){
-		return $this->pass_word;
+		return $this->password;
 	}
 
 	private function getCharacterSet(){
