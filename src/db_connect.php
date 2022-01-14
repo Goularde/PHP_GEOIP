@@ -4,7 +4,7 @@ class Database{
     private $db;
 
     public function __construct(){
-        $jsonResult = $this->readJSONConfig("dbconfig.json");
+        $jsonResult = $this->readJSONConfig("config/dbconfig.json");
         $this->connection($jsonResult['host'], $jsonResult['databasename'], $jsonResult['user'], $jsonResult['password']);
     }
 

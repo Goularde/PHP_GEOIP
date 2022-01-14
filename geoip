@@ -1,20 +1,19 @@
 <?php
-	
 
 	//Méthode Fonctionnelle mais trop lente pour 3Million de
-	require_once"db_connect.php";
+	require_once"src/db_connect.php";
 
 	$db = new Database();
     $db_conn = $db->getConnexion();
 
-    $fileName = "geoip.csv";
+    $fileName = "data/geoip.csv";
 	ini_set('memory_limit', '-1');
 
     if (($handle = fopen($fileName, "r")) !== FALSE) {
 		
 		$time_pre = microtime(true);
         echo("Importation en cours ...");
-        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        while (($data = fgetcsv($handle, 2000, ",")) !== FALSE) {
             $num = count($data);
             $geoip_array = array();
             for ($c=0; $c < $num; $c++) {
